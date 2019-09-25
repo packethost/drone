@@ -2,9 +2,10 @@ package vault
 
 import (
 	"fmt"
-	"github.com/drone/drone/plugins/internal"
 	"io/ioutil"
 	"time"
+
+	"github.com/drone/drone/plugins/internal"
 )
 
 /*

@@ -17,9 +17,10 @@ package bitbucketserver
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
+
 	"github.com/drone/drone/model"
 	"github.com/drone/drone/remote/bitbucketserver/internal"
-	"net/http"
 )
 
 // parseHook parses a Bitbucket hook from an http.Request request and returns

@@ -125,11 +125,11 @@ func (s *RPC) Next(c context.Context, filter rpc.Filter) (*rpc.Pipeline, error) 
 	// check if the process was previously cancelled
 	// cancelled, _ := s.checkCancelled(pipeline)
 	// if cancelled {
-	// 	logrus.Debugf("ignore pid %v: cancelled by user", pipeline.ID)
-	// 	if derr := s.queue.Done(c, pipeline.ID); derr != nil {
-	// 		logrus.Errorf("error: done: cannot ack proc_id %v: %s", pipeline.ID, err)
-	// 	}
-	// 	return nil, nil
+	//	logrus.Debugf("ignore pid %v: cancelled by user", pipeline.ID)
+	//	if derr := s.queue.Done(c, pipeline.ID); derr != nil {
+	//		logrus.Errorf("error: done: cannot ack proc_id %v: %s", pipeline.ID, err)
+	//	}
+	//	return nil, nil
 	// }
 
 	err = json.Unmarshal(task.Data, pipeline)
@@ -564,18 +564,18 @@ func (s *DroneServer) Next(c oldcontext.Context, req *proto.NextRequest) (*proto
 	return res, err
 
 	// fn := func(task *queue.Task) bool {
-	// 	for k, v := range req.GetFilter().Labels {
-	// 		if task.Labels[k] != v {
-	// 			return false
-	// 		}
-	// 	}
-	// 	return true
+	//	for k, v := range req.GetFilter().Labels {
+	//		if task.Labels[k] != v {
+	//			return false
+	//		}
+	//	}
+	//	return true
 	// }
 	// task, err := s.Queue.Poll(c, fn)
 	// if err != nil {
-	// 	return nil, err
+	//	return nil, err
 	// } else if task == nil {
-	// 	return nil, nil
+	//	return nil, nil
 	// }
 	//
 	// pipeline := new(rpc.Pipeline)
@@ -590,11 +590,11 @@ func (s *DroneServer) Next(c oldcontext.Context, req *proto.NextRequest) (*proto
 	// // check if the process was previously cancelled
 	// // cancelled, _ := s.checkCancelled(pipeline)
 	// // if cancelled {
-	// // 	logrus.Debugf("ignore pid %v: cancelled by user", pipeline.ID)
-	// // 	if derr := s.queue.Done(c, pipeline.ID); derr != nil {
-	// // 		logrus.Errorf("error: done: cannot ack proc_id %v: %s", pipeline.ID, err)
-	// // 	}
-	// // 	return nil, nil
+	// //	logrus.Debugf("ignore pid %v: cancelled by user", pipeline.ID)
+	// //	if derr := s.queue.Done(c, pipeline.ID); derr != nil {
+	// //		logrus.Errorf("error: done: cannot ack proc_id %v: %s", pipeline.ID, err)
+	// //	}
+	// //	return nil, nil
 	// // }
 	//
 	// return res, nil
