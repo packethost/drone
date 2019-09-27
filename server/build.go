@@ -667,6 +667,7 @@ func PostBuild(c *gin.Context) {
 		task.ID = fmt.Sprint(item.Proc.ID)
 		task.Labels = map[string]string{}
 		task.Labels["platform"] = item.Platform
+		task.Labels["repo"] = repo.FullName
 		for k, v := range item.Labels {
 			task.Labels[k] = v
 		}
