@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eux
+
 # only execute this script as part of the pipeline.
 [ -z "$CI" ] && echo "missing ci environment variable" && exit 2
 
