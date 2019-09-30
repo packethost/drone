@@ -43,9 +43,9 @@ pipeline:
     repo: quay.io/packet/drone
     dockerfile: Dockerfile.alpine
     secrets: [ docker_username, docker_password ]
-    tag: [ server-alpine ]
+    tags:
+      - server-alpine-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT_SHA}
     when:
-      branch: master
       event: push
 
   publish_server:
@@ -54,9 +54,9 @@ pipeline:
     registry: quay.io
     repo: quay.io/packet/drone
     secrets: [ docker_username, docker_password ]
-    tag: [ server ]
+    tags:
+      - server-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT_SHA}
     when:
-      branch: master
       event: push
 
   publish_agent_alpine:
@@ -66,9 +66,9 @@ pipeline:
     repo: quay.io/packet/drone
     dockerfile: Dockerfile.agent.alpine
     secrets: [ docker_username, docker_password ]
-    tag: [ agent-alpine ]
+    tags:
+      - agent-alpine-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT_SHA}
     when:
-      branch: master
       event: push
 
   publish_agent_amd64:
@@ -78,9 +78,9 @@ pipeline:
     repo: quay.io/packet/drone
     dockerfile: Dockerfile.agent
     secrets: [ docker_username, docker_password ]
-    tag: [ agent ]
+    tags:
+      - agent-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT_SHA}
     when:
-      branch: master
       event: push
 
 services:
