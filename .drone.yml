@@ -79,45 +79,6 @@ pipeline:
       branch: master
       event: push
 
-  release_server_alpine:
-    image: plugins/docker
-    registry: quay.io
-    repo: quay.io/packet/drone
-    dockerfile: Dockerfile.alpine
-    secrets: [ docker_username, docker_password ]
-    tag: [ 0.8-alpine ]
-    when:
-      event: tag
-
-  release_agent_alpine:
-    image: plugins/docker
-    registry: quay.io
-    repo: quay.io/packet/drone
-    dockerfile: Dockerfile.agent.alpine
-    secrets: [ docker_username, docker_password ]
-    tag: [ 0.8-alpine ]
-    when:
-      event: tag
-
-  release_server:
-    image: plugins/docker
-    registry: quay.io
-    repo: quay.io/packet/drone
-    secrets: [ docker_username, docker_password ]
-    tag: [ 0.8 ]
-    when:
-      event: tag
-
-  release_agent:
-    image: plugins/docker
-    registry: quay.io
-    repo: quay.io/packet/drone
-    dockerfile: Dockerfile.agent
-    secrets: [ docker_username, docker_password ]
-    tag: [ 0.8 ]
-    when:
-      event: tag
-
 services:
   postgres:
     image: postgres:9.6
