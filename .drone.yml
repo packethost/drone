@@ -37,6 +37,7 @@ pipeline:
       event: [ push, tag ]
 
   publish_server_alpine:
+    group: publish
     image: plugins/docker
     registry: quay.io
     repo: quay.io/packet/drone
@@ -48,6 +49,7 @@ pipeline:
       event: push
 
   publish_server:
+    group: publish
     image: plugins/docker
     registry: quay.io
     repo: quay.io/packet/drone
@@ -58,6 +60,7 @@ pipeline:
       event: push
 
   publish_agent_alpine:
+    group: publish
     image: plugins/docker
     registry: quay.io
     repo: quay.io/packet/drone
@@ -69,6 +72,7 @@ pipeline:
       event: push
 
   publish_agent_amd64:
+    group: publish
     image: plugins/docker
     registry: quay.io
     repo: quay.io/packet/drone
